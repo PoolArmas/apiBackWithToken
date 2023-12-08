@@ -1,8 +1,6 @@
-# Spring Boot H2 Database CRUD example by Object User
+# Spring Boot H2 Database with Validation Token
 
-- Building Rest API with Spring Data JPA
-- Way to create Spring Rest Controller to process HTTP requests
-- Way to use Spring Data JPA to interact with H2 Database
+- this API with DB H2, and validation token with parameter of validate Date Now
 
 # H2 Config
 
@@ -21,7 +19,78 @@
 	 
 2._ Import Collection Postman , in your Postman local By test This API
 	 
-	apiDesafioOnlyBack\backTest\spring-boot-CRUD\src\main\resources	 
+	{
+	"info": {
+		"_postman_id": "92c0d68a-0063-4fbc-b2f3-97af68c82754",
+		"name": "testBackendApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "13007971"
+	},
+	"item": [
+		{
+			"name": "CreatedUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmZWNoYVRva2VuIjoiMjAyMy0wNC0wNCJ9.q3thtbOYWpAYp2C4TWzDotoptmW1S8NAOvaXR7Zltn0"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Test Prueba\",\r\n    \"email\": \"testn@com.cl\",\r\n    \"password\": \"22Abcfgt\",\r\n    \"phones\": [\r\n                {\r\n                    \"number\": \"44444\",\r\n                    \"citycode\": \"55\",\r\n                    \"contrycode\": \"345\"\r\n                }\r\n            ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/addUser"
+			},
+			"response": []
+		},
+		{
+			"name": "getUsers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmZWNoYVRva2VuIjoiMjAyMy0wNC0wNCJ9.q3thtbOYWpAYp2C4TWzDotoptmW1S8NAOvaXR7Zltn0"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/api/getUsers"
+			},
+			"response": []
+		},
+		{
+			"name": "UpdatedUserByName",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAll",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmZWNoYVRva2VuIjoiMjAyMy0wNC0wNCJ9.q3thtbOYWpAYp2C4TWzDotoptmW1S8NAOvaXR7Zltn0"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/api/deleteAll"
+			},
+			"response": []
+		}
+	]
+}
 	
 3._ EndPoints:
 	
